@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var numOne, numTwo, res;
+        function add() {
+            numOne = parseInt(document.getElementById("num1").value);
+            numTwo = parseInt(document.getElementById("num2").value);
+            res = numOne + numTwo;
+            document.getElementById("ans").value = res;
+        }
+        function sub() {
+            numOne = parseInt(document.getElementById("num1").value);
+            numTwo = parseInt(document.getElementById("num2").value);
+            res = numOne - numTwo;
+            document.getElementById("ans").value = res;
+        }
+        function mul() {
+            numOne = parseInt(document.getElementById("num1").value);
+            numTwo = parseInt(document.getElementById("num2").value);
+            res = numOne * numTwo;
+            document.getElementById("ans").value = res;
+        }
+        function divi() {
+            numOne = parseInt(document.getElementById("num1").value);
+            numTwo = parseInt(document.getElementById("num2").value);
+            if(numTwo==0){
+                res="Division Not Possible by 0"
+                document.getElementById("ans").value = res;
+            }else{
+                res = numOne / numTwo;
+                document.getElementById("ans").value = res;
+            }
+        }
+
+
+    </script>
+</head>
+
+<body >
+    <div class="con">
+        <form>
+            <em style="text-align: center;"><h1>Simple Calculator</h1></em>     
+            <table cellspacing="30px">
+
+                <tr>
+                    <td><label for="num1">Enter Number 1</label></td>
+                    <td><input type="text" name="num1" id="num1" value="0" required autofocus></td>
+
+                </tr>
+                <tr>
+                    <td><label for="num2">Enter Number 2</label></td>
+                    <td> <input type="text" name="num2" id="num2" value="0" required></td>
+
+                </tr>
+                <tr>
+                    <td><label for="ans">Result</label></td>
+                    <td> <input type="text" name="ans" id="ans" value="0"></td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <input class="button button2" onclick="add()" type="button" value="Addition">
+                    </td>
+                    <td> <input class="button button2" onclick="sub()" type="button" value="Subtraction"><br>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="button button2" onclick="mul()" type="button" value="Multiplication">
+                    </td>
+                    <td><input class="button button2" onclick="divi()" type="button" value="Division"></td>
+                    <td><input class="button button3" type="reset" value="Clear"></td>
+                </tr>
+
+            </table>
+
+        </form>
+    </div>
+</body>
+
+</html>
