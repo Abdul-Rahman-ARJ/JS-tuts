@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+        function valid(form) {
+            var username = form.username.value;
+            var password = form.pwd.value;
+            var address = form.add.value;
+            var errs = [];
+            var mini=4
+            var maxi=12;
+            if (username.length<mini || username.length>maxi) {
+                errs[errs.length] = "Enter the User name"
+            }
+            if (password.length<mini || password.length>maxi) {
+                errs[errs.length] = "Enter the Password"
+            }
+            if (address.length<mini || address.length>maxi) {
+                errs[errs.length] = "Enter the Address"
+            }
+            if (errs.length > 0) {
+                reporterrsors(errs);
+                return false
+            }
+            console.log(username, password, address)
+            return true;
+        }
+        function reporterrsors(errs) {
+            var msg = "Following problems occured";
+            for (var i = 0; i < errs.length; i++) {
+                msg += `\n${i + 1}. ${errs[i]}`
+            }
+            console.log(msg)
+            alert(msg);
+        }
+       
+        
+    </script>
+</head>
+
+<body>
+    <div class="con">
+    <h1>
+        Login Form
+    </h1>
+    <form method="get" onsubmit="valid(this);">
+        <label for="username">Username</label><br>
+        <input type="text" name="username" id="username" /><br>
+        <label for="pwd">Password</label><br>
+        <input type="password" name="pwd" id="pwd" /><br>
+        <label for="add">Address</label><br>
+        <input type="text" name="add" id="add" /><br>
+        
+<!-- <button >Blue</button>
+<button >Red</button> -->
+        <input class="button button2" type="submit" value="Submit">
+        <input class="button button3" type="reset" value="Reset">
+    </form>
+</div>
+</body>
+
+</html>

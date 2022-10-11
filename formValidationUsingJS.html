@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script>
+        function validation(form){
+            let username = form.username.value;
+            let password = form.pwd.value;
+            let address = form.add.value;
+            if(username.length === 0){
+                alert("You have not entered Username");
+                return false;
+            }            
+            if(password.length === 0){
+                alert("You have not entered Password");
+                return false;
+            }            
+            if(address.length === 0){
+                alert("You have not entered Address");
+                return false;
+            }            
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validation(this);" >
+        <label for="username">Username</label><br>
+        <input type="text" name="username" id="username" /><br>
+        <label for="pwd">Password</label><br>
+        <input type="password" name="pwd" id="pwd"/><br>
+        <label for="add">Address</label><br>
+        <input type="text" name="add" id="add"/><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    
+    </form>
+</body>
+</html>

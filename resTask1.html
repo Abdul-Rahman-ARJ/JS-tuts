@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="res.css">
+    <script>
+          function valid(form){
+            let username = form.username.value;
+            let password = form.pwd.value;
+            let address = form.add.value;
+            if(username.length === 0){
+                alert("You have not entered Username");
+                return false;
+            }            
+            if(password.length === 0){
+                alert("You have not entered Password");
+                return false;
+            }            
+            if(address.length === 0){
+                alert("You have not entered Address");
+                return false;
+            }            
+            return true;
+        }
+    </script>
+</head>
+<body>
+   
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                
+                <form class="login" onsubmit="return valid(this);">
+                    <h1 style="padding:-10px 0 ; font-family:'Courier New', Courier, monospace">
+                        Login Form<br> By AR
+                    </h1> 
+                    <div class="login__field">
+                        <i class="login__icon fas fa-user"></i>
+                        <input type="text" class="login__input" name="username" id="username" placeholder="User name / Email">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="password" class="login__input" name="pwd" id="pwd" placeholder="Password">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fas fa-lock"></i>
+                        <input type="text" class="login__input" name="add" id="add" placeholder="Address">
+                    </div>
+                    <button class="button login__submit" type="submit">
+                        <span class="button__text">Submit</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>				
+                    <button class="button login__submit" type="reset">
+                        <span class="button__text">Reset</span>
+                        <i class="button__icon fas fa-chevron-right"></i>
+                    </button>				
+                </form>
+                
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>		
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>		
+        </div>
+    </div>
+    
+</body>
+</html>
