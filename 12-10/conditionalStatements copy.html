@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>If Else</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var a;
+        function checkAge() {
+            a = parseInt(document.getElementById("Age").value);
+            if (a > 18) {
+                alert("You Can Vote");
+            }
+            else {
+                alert("You Are Not Allowed to Vote");
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <div class="con">
+        Enter your Age
+        <input type="text" id="Age">
+        <input type="button" class="btn" value="check" onclick="checkAge()">
+    </div>
+</body>
+
+</html>
