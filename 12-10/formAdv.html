@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validation(form) {
+            var username = form.username.value;
+            var password = form.pwd.value;
+            var Email = form.email.value;
+            var cupCone = form.cupcone;
+            var special = form.special.value;
+            var errs = [];
+            var mini = 4;
+            var maxi = 20;
+            if (username.length < mini || username.length > maxi) {
+                errs[errs.length] = "Enter the User name";
+            }
+            if (password.length < mini || password.length > maxi) {
+                errs[errs.length] = "Enter the Password";
+            }
+            if (Email.length < mini || Email.length > maxi) {
+                errs[errs.length] = "Enter the Email";
+            }
+            if (!checkRadio(cupCone)) {
+                errs[errs.length] = "Please select one type of Cup / Cone";
+
+            }
+            if (!checkSelect(form.flavor)) {
+                errs[errs.length] = "Please select one type flavor";
+
+            }
+            if (!checkTerm(form.term)) {
+                errs[errs.length] = "Please Agree The Terms";
+
+            }
+
+            if (errs.length > 0) {
+                reporterrsors(errs);
+                return false;
+            }
+            console.log(username, password, address)
+            return true;
+        }
+        function reporterrsors(errs) {
+            var msg = "Following problems occured";
+            for (var i = 0; i < errs.length; i++) {
+                msg += `\n${i + 1}. ${errs[i]}`;
+            }
+            console.log(msg);
+            alert(msg);
+        }
+        function checkRadio(r) {
+            for (var i = 0; i < r.length; i++) {
+                if (r[i].checked) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        function checkSelect(f) {
+            return (f.selectedIndex > 0);
+        }
+        function checkTerm(term) {
+            return term.checked;
+        }
+        function checkText(text, max) {
+            if (text.value.length > 100) {
+                var oTextLen = text.value.length;
+                var newText = text.value.substr(0, max);
+                var msg = "you entered " + oTextLen + " characters.\n";
+                msg += 'The limit is 100.\n';
+                msg += 'So your msg will now be shortened to:\n\n' + newText;
+                alert(msg);
+                text.value = newText;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="con">
+        <form action="submit.html" method="post" onsubmit="return validation(this);">
+            <em>
+                <h1 style="text-align: center;">ICE CREAM FORM</h1>
+            </em>
+            <table cellspacing="20px">
+                <tr>
+                    <td> Enter Your Name</td>
+                    <td><input type="text" name="username" id="username" placeholder="Your Name"></td>
+                </tr>
+                <tr>
+                    <td> Enter Your Email</td>
+                    <td><input type="text" name="email" id="email" placeholder="Your Email"></td>
+                </tr>
+                <tr>
+                    <td> Enter Your Password</td>
+                    <td><input type="password" name="pwd" id="pws" placeholder="Your Password"></td>
+                </tr>
+                <tr>
+                    <td> Choose Cup or Cone Ice Cream</td>
+                    <td>
+                        <input type="radio" name="cupcone" id="Cup" value="Cup"><label for="Cup">Cup</label>
+                        <input type="radio" name="cupcone" id="Plain Cone" value="Plain Cone"><label
+                            for="Plain Cone">Plain Cone</label><br>
+                        <input type="radio" name="cupcone" id="sugar cone" value="sugar cone"><label
+                            for="sugar cone">sugar cone</label>
+                        <input type="radio" name="cupcone" id="waffle cone" value="waffle cone"><label
+                            for="waffle cone">waffle cone</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Choose Flavor</td>
+                    <td>
+                        <select name="flavor" id="flavor" style="width: 100%; height:100%;">
+                            <option value=""></option>
+                            <option value="vanilla">vanilla</option>
+                            <option value="straberry">straberry</option>
+                            <option value="chocolate">chocolate</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Special Request</td>
+                    <td><textarea name="special" id="special" cols="30" rows="10" onblur="checkText(this,100)"
+                            wrap="virtual"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" name="term" id="term"><label for="term">I understand that iam
+                            really not going to get any ice cream</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input class="button button2" type="submit" value="Submit">
+                    </td>
+                    <td>
+                        <input class="button button3" type="reset" value="Clear">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>
